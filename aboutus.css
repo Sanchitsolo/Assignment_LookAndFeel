@@ -1,0 +1,37 @@
+body {
+    font-family: 'Sedan', sans-serif;
+    background-color: #f4f4f4;
+}
+
+.navbar {
+    background-color: #333;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+}
+
+.navbar-nav .nav-link {
+    color: #fff;
+    margin-right: 20px;
+    font-size: 1.1rem;
+}
+
+/* About Us Page Styles */
+.about-us {
+    background-color: #fff;
+    padding: 50px 0;
+    text-align: center; 
+}
+
+.about-us h2 {
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+}
+
+.about-us p {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}

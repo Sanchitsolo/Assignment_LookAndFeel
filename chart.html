@@ -3,109 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Sales Chart</title>
+    <title>Monthly Sales Data</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             margin: 0;
+            padding: 20px;
             background-color: #f7f7f7;
         }
 
         .container {
-            width: 80%;
+            max-width: 900px;
             margin: auto;
+            text-align: center;
         }
 
-        select {
-            display: block;
-            margin-bottom: 20px;
+        #productFilter {
             padding: 10px;
             font-size: 16px;
+            margin-bottom: 20px;
         }
 
         canvas {
             background-color: #fff;
             border: 1px solid #ddd;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <select id="productSelect">
-            <option value="">Select a product...</option>
-            <option value="product1">Product 1</option>
-            <option value="product2">Product 2</option>
-            <option value="product3">Product 3</option>
-            <!-- Add more product options here -->
+        <h2>Monthly Sales Data</h2>
+        <label for="productFilter">Select Product:</label>
+        <select id="productFilter">
+            <option value="Product1">Wall Painting Italy</option>
+            <option value="Product2">Sponge</option>
+            <option value="Product3">Football Jersey Esp</option>
+            
         </select>
-        <canvas id="myChart"></canvas>
+        <canvas id="salesChart"></canvas>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        // ... Your JavaScript code goes here ...
-        // Function to generate random sales data
+        const labels = [
+            'January', 'February', 'March', 'April', 'May', 'June',
+            'July', 'August', 'September', 'October', 'November', 'December'
+        ];
+
         function generateRandomSalesData() {
-            let salesData = [];
-            for (let i = 0; i < 500; i++) {
-                // Generate a random number between 0 and 100 for sales data
-                salesData.push(Math.floor(Math.random() * 101));
-            }
-            return salesData;
+            return Array.from({ length: 12 }, () => Math.floor(Math.random() * 1000));
         }
 
-        // Function to update the chart with the selected product's data
-        function updateChart(productSalesData, chartInstance) {
-            chartInstance.data.labels = Array.from({ length: 500 }, (_, i) => i + 1); // Generate labels 1 to 500
-            chartInstance.data.datasets[0].data = productSalesData; // Update the dataset for Dataset 1
-            chartInstance.update(); // Refresh the chart
-        }
+        const salesData = {
+            Product1: generateRandomSalesData(),
+            Product2: generateRandomSalesData(),
+            Product3: generateRandomSalesData(),
+            
 
-        // Event listener for when the product selection changes
-        document.getElementById('productSelect').addEventListener('change', function () {
-            const productSalesData = generateRandomSalesData();
-            updateChart(productSalesData, myLineChart);
-        });
-
-        // Initialize Chart.js
-        var ctx = document.getElementById('myChart').getContext('2d');
-        var myLineChart = new Chart(ctx, {
-            type: 'line',
+        const ctx = document.getElementById('salesChart').getContext('2d');
+        const salesChart = new Chart(ctx, {
+            type: 'bar',
             data: {
-                labels: [], // Labels will be set when updating the chart
+                labels: labels,
                 datasets: [{
                     label: 'Product Sales',
-                    data: [], // Initialize with empty data; will be populated when a product is selected
-                    borderColor: 'rgba(75,192,192,1)',
-                    fill: false,
+                    data: salesData['Product1'], 
+                    backgroundColor: 'rgba(0, 123, 255, 0.5)',
+                    borderColor: 'rgba(0, 123, 255, 1)',
+                    borderWidth: 1
                 }]
             },
             options: {
                 scales: {
-                    xAxes: [{
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Observation Number'
-                        }
-                    }],
-                    yAxes: [{
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Sales'
-                        },
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Sales Over Time'
+                    }
                 }
             }
         });
 
+      
+        document.getElementById('productFilter').addEventListener('change', (event) => {
+            const selectedProduct = event.target.value;
+            salesChart.data.datasets[0].data = salesData[selectedProduct];
+            salesChart.update();
+        });
     </script>
 </body>
 </html>

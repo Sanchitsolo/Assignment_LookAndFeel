@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Sales Chart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f7f7f7;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+        }
+
+        select {
+            display: block;
+            margin-bottom: 20px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        canvas {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <select id="productSelect">
+            <option value="">Select a product...</option>
+            <option value="product1">Product 1</option>
+            <option value="product2">Product 2</option>
+            <option value="product3">Product 3</option>
+            <!-- Add more product options here -->
+        </select>
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // ... Your JavaScript code goes here ...
+        // Function to generate random sales data
+        function generateRandomSalesData() {
+            let salesData = [];
+            for (let i = 0; i < 500; i++) {
+                // Generate a random number between 0 and 100 for sales data
+                salesData.push(Math.floor(Math.random() * 101));
+            }
+            return salesData;
+        }
+
+        // Function to update the chart with the selected product's data
+        function updateChart(productSalesData, chartInstance) {
+            chartInstance.data.labels = Array.from({ length: 500 }, (_, i) => i + 1); // Generate labels 1 to 500
+            chartInstance.data.datasets[0].data = productSalesData; // Update the dataset for Dataset 1
+            chartInstance.update(); // Refresh the chart
+        }
+
+        // Event listener for when the product selection changes
+        document.getElementById('productSelect').addEventListener('change', function () {
+            const productSalesData = generateRandomSalesData();
+            updateChart(productSalesData, myLineChart);
+        });
+
+        // Initialize Chart.js
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myLineChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [], // Labels will be set when updating the chart
+                datasets: [{
+                    label: 'Product Sales',
+                    data: [], // Initialize with empty data; will be populated when a product is selected
+                    borderColor: 'rgba(75,192,192,1)',
+                    fill: false,
+                }]
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Observation Number'
+                        }
+                    }],
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Sales'
+                        },
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>

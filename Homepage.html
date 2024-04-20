@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopper Zone - Home</title>
+    <style>
+        body, h1, h2, p, a {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .header {
+            background-color: #ff5722;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+            .navbar a {
+                float: left;
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 20px;
+                text-decoration: none;
+                transition: background-color 0.3s;
+            }
+
+                .navbar a:hover {
+                    background-color: #ff5722;
+                }
+        .main {
+            padding: 50px;
+            background: url('https://imgs.search.brave.com/uEAZ7-nfYxB1fC_6djIwmmXMtaFGR0XbTxW2f7ivo5o/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJjYXZlLmNv/bS93cC93cDY5MTAy/NDcuanBn') no-repeat center center fixed;
+            background-size: cover;
+            text-align: center;
+            color: white;
+            min-height: 100vh; /* This will make sure that the .main container covers the full viewport height */
+        }
+
+
+            .main h2 {
+                font-size: 32px;
+                margin-bottom: 20px;
+            }
+
+            .main p {
+                font-size: 18px;
+                margin-bottom: 30px;
+            }
+
+        .explore-btn {
+            padding: 10px 20px;
+            font-size: 18px;
+            color: white;
+            background-color: #ff5722;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+            .explore-btn:hover {
+                background-color: #e64a19;
+            }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Shopper Zone</div>
+
+    <div class="navbar">
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#analytics">Analytics</a>
+        <a href="#story">Our Customer Story</a>
+        <a href="#about">About us</a>
+    </div>
+
+    <div class="main">
+        <h2>Welcome to Shopper Zone</h2>
+        <p>Business Process Management System.</p>
+        <button class="explore-btn">Explore business processes →</button>
+    </div>
+
+    <div class="footer">
+        Shopper Zone © 2024. All rights reserved.
+    </div>
+</body>
+</html>

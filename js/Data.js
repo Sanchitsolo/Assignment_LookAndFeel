@@ -15,16 +15,16 @@ const data = {
     ],
 
     orders: [
-        { orderId: 1, categoryID: 1, orderDate: '2024-04-10 08:30', orderStatus: 'Delivered' },
-        { orderId: 2, categoryID: 2, orderDate: '2024-04-11 09:45', orderStatus: 'In Transit' },
-        { orderId: 3, categoryID: 3, orderDate: '2024-04-12 10:15', orderStatus: 'At Warehouse' },
-        { orderId: 4, categoryID: 4, orderDate: '2024-04-13 11:30', orderStatus: 'Delivered' },
-        { orderId: 5, categoryID: 5, orderDate: '2024-04-14 12:45', orderStatus: 'In Transit' },
-        { orderId: 6, categoryID: 6, orderDate: '2024-04-15 14:00', orderStatus: 'Delivered' },
-        { orderId: 7, categoryID: 7, orderDate: '2024-04-16 15:15', orderStatus: 'At Warehouse' },
-        { orderId: 8, categoryID: 8, orderDate: '2024-04-17 16:30', orderStatus: 'Delivered' },
-        { orderId: 9, categoryID: 9, orderDate: '2024-04-18 17:45', orderStatus: 'In Transit' },
-        { orderId: 10, categoryID: 10, orderDate: '2024-04-19 18:00', orderStatus: 'Delivered' }
+        { orderId: 1, customerID: 1, orderDate: '2024-04-10 08:30', orderStatus: 'Delivered' },
+        { orderId: 2, customerID: 2, orderDate: '2024-04-11 09:45', orderStatus: 'In Transit' },
+        { orderId: 3, customerID: 3, orderDate: '2024-04-12 10:15', orderStatus: 'At Warehouse' },
+        { orderId: 4, customerID: 4, orderDate: '2024-04-13 11:30', orderStatus: 'Delivered' },
+        { orderId: 5, customerID: 5, orderDate: '2024-04-14 12:45', orderStatus: 'In Transit' },
+        { orderId: 6, customerID: 6, orderDate: '2024-04-15 14:00', orderStatus: 'Delivered' },
+        { orderId: 7, customerID: 7, orderDate: '2024-04-16 15:15', orderStatus: 'At Warehouse' },
+        { orderId: 8, customerID: 8, orderDate: '2024-04-17 16:30', orderStatus: 'Delivered' },
+        { orderId: 9, customerID: 9, orderDate: '2024-04-18 17:45', orderStatus: 'In Transit' },
+        { orderId: 10, customerID: 10, orderDate: '2024-04-19 18:00', orderStatus: 'Delivered' }
     ],
 
     orderDetails: [

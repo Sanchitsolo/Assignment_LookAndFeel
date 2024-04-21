@@ -32,3 +32,13 @@ td.email {
     margin-left: 10px;
     margin-right: 10rem;
 }
+.table-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.add-button-container {
+    margin-top: 1rem;
+}
+

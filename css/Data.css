@@ -1,5 +1,4 @@
 #tableSelect {
-    width: 50%;
     max-width: 300px;
     font-size: 1.0rem;
     margin-bottom: 5px;
@@ -30,7 +29,7 @@ td.email {
 .form-select {
     margin-top: 12px;
     margin-left: 10px;
-    margin-right: 10rem;
+    margin-right: 1rem;
 }
 .table-container {
     display: flex;

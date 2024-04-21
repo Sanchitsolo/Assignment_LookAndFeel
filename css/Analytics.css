@@ -10,6 +10,8 @@ canvas {
     border: 1px solid #ddd;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-top: 10px;
+    max-width: 100%;
+    height: auto;
 }
 
 #productSelect {
@@ -23,4 +25,10 @@ h2 {
 select {
     margin-top: 15px;
     margin-left: 10px;
+}
+
+@media only screen and (orientation: landscape) {
+    #myPieChart {
+        display: block; margin: auto; width: 100%; height: auto;
+    }
 }

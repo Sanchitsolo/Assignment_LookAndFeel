@@ -1,6 +1,6 @@
 ﻿body {
   font-family: 'Sedan', sans-serif;
-  background-image: url("https://analytics.hbs.edu/wp-content/uploads/sites/15/2020/10/BizAnalytics_vs_Intelligence-Hero.jpg"); /* Same background image */
+  background-image: url("../img/Img_bckg.jpg"); /* Same background image */
   background-size: cover; /* Cover the entire container */
   background-position: center; /* Center the background image */
   color: #fff; /* Set text color to white for better readability */
@@ -15,19 +15,19 @@
 }
 
 /* Overlay to make the background image blur */
-body::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("https://analytics.hbs.edu/wp-content/uploads/sites/15/2020/10/BizAnalytics_vs_Intelligence-Hero.jpg"); /* Same background image */
-  background-size: cover; /* Cover the entire container */
-  background-position: center; /* Center the background image */
-  filter: blur(7px); /* Add blur effect to the background image */
-  z-index: -1; /* Ensure the overlay is behind the content */
-}
+    body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("../img/Img_bckg.jpg"); /* Same background image */
+        background-size: cover; /* Cover the entire container */
+        background-position: center; /* Center the background image */
+        filter: blur(7px); /* Add blur effect to the background image */
+        z-index: -1; /* Ensure the overlay is behind the content */
+    }
 
 .navbar {
   background-color: #333;
@@ -104,11 +104,11 @@ h1 {
 }
 
 .content-wrapper {
-  margin-top: 50px;
-  margin-bottom: 50px;
-  height: calc(100vh - 140px);
-  overflow-y: auto;
-  width: 80%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    height: calc(100vh - 140px);
+    overflow-y: auto;
+    width: 80%;
 }
 
 .group {

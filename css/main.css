@@ -1,4 +1,4 @@
-body {
+﻿body {
   font-family: 'Sedan', sans-serif;
   background-image: url("https://analytics.hbs.edu/wp-content/uploads/sites/15/2020/10/BizAnalytics_vs_Intelligence-Hero.jpg"); /* Same background image */
   background-size: cover; /* Cover the entire container */
@@ -25,7 +25,7 @@ body::before {
   background-image: url("https://analytics.hbs.edu/wp-content/uploads/sites/15/2020/10/BizAnalytics_vs_Intelligence-Hero.jpg"); /* Same background image */
   background-size: cover; /* Cover the entire container */
   background-position: center; /* Center the background image */
-  filter: blur(2px); /* Add blur effect to the background image */
+  filter: blur(7px); /* Add blur effect to the background image */
   z-index: -1; /* Ensure the overlay is behind the content */
 }
 
@@ -93,13 +93,14 @@ h1 {
 }
 
 .footer {
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }
 
 .content-wrapper {
@@ -121,4 +122,37 @@ label.form-label {
   color: #fff;
   font-weight: bold;
   font-size: 1.2rem; 
+}
+
+.features-box {
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+    padding: 20px;
+    border-radius: 8px;
+    color: #fff; /* White text for better readability */
+    margin-top: 20px; /* Space between the button and the feature box */
+}
+
+.features-list {
+    list-style: none; /* Removes default list styles */
+    padding: 0;
+    margin: 0; /* Removes default margin */
+}
+
+    .features-list li {
+        padding-left: 1.5em;
+        text-indent: -1.5em;
+    }
+
+        .features-list li::before {
+            content: "✔"; /* Adds a checkmark before each feature */
+            color: #FF7F50; /* Orange color to match the button */
+            padding-right: 10px;
+            font-weight: bold;
+        }
+
+/* Adjustments for responsiveness */
+@media (max-width: 991px) {
+    .features-box {
+        width: 100%; /* Full width on smaller screens */
+    }
 }

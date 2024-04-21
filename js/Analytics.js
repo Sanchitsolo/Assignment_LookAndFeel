@@ -138,7 +138,6 @@ const salesChart = new Chart(ctx3, {
             },
             title: {
                 display: true,
-                text: 'Sales Over Time'
             }
         }
     }
@@ -195,7 +194,6 @@ const options = {
         },
         title: {
             display: true,
-            text: 'Percentage of Returns by Return Reason'
         }
     }
 };

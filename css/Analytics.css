@@ -1,10 +1,5 @@
-.container {
-    width: 80%;
-    margin: auto;
-}
-
 select {
-    display: block;
+    display: flex;
     margin-bottom: 20px;
     padding: 10px;
     font-size: 16px;
@@ -14,9 +9,18 @@ canvas {
     background-color: #fff;
     border: 1px solid #ddd;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 #productSelect {
     margin-top: 80px;
+}
+
+h2 {
+    margin-top: 50px;
+}
+
+select {
+    margin-top: 15px;
+    margin-left: 10px;
 }

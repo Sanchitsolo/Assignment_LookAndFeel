@@ -1,64 +1,4 @@
 // For Curve 1
-// Function to generate random sales data
-function generateRandomSalesData() {
-    let salesData = [];
-    for (let i = 0; i < 10; i++) {
-      // Generate a random number between 0 and 100 for sales data
-      salesData.push(Math.floor(Math.random() * 101));
-    }
-    return salesData;
-  }
-  
-  const quarterLabels = ['Q1', 'Q2', 'Q3', 'Q4'];
-  
-  // Function to update the chart with the selected product's data
-  function updateChart(productSalesData, chartInstance) {
-    chartInstance.data.labels = quarterLabels; // Generate labels 1 to 500
-    chartInstance.data.datasets[0].data = productSalesData; // Update the dataset for Dataset 1
-    chartInstance.update(); // Refresh the chart
-  }
-  
-  // Event listener for when the product selection changes
-  document.getElementById('productSelect').addEventListener('change', function() {
-    const productSalesData = generateRandomSalesData();
-    updateChart(productSalesData, myLineChart);
-  });
-  
-  // Initialize Chart.js
-  var ctx = document.getElementById('myChart').getContext('2d');
-  var myLineChart = new Chart(ctx, {
-      type: 'line',
-      data: {
-          labels: [], // Labels will be set when updating the chart
-          datasets: [{
-              label: 'Product Sales',
-              data: [], // Initialize with empty data; will be populated when a product is selected
-              borderColor: 'rgba(75,192,192,1)',
-              fill: false,
-          }]
-      },
-      options: {
-          scales: {
-              xAxes: [{
-                  scaleLabel: {
-                      display: true,
-                      labelString: 'Observation Number'
-                  }
-              }],
-              yAxes: [{
-                  scaleLabel: {
-                      display: true,
-                      labelString: 'Sales'
-                  },
-                  ticks: {
-                      beginAtZero: true
-                  }
-              }]
-          }
-      }
-  });
-
-// For Curve 2
 function generateRandomData(year) {
     var priceRanges = ['0-100', '100-200', '200-300', '300-400', '400-500'];
     var paymentMethods = ['Credit Card', 'PayPal', 'Cash'];
@@ -143,4 +83,127 @@ var stackedBarChart = new Chart(ctx, {
             }
         }
     },
+});
+
+//Curve 2
+
+const labels = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+];
+
+function generateRandomSalesData() {
+    return Array.from({ length: 12 }, () => Math.floor(Math.random() * 1000));
+}
+
+const salesData = {
+    Category1: generateRandomSalesData(),
+    Category2: generateRandomSalesData(),
+    Category3: generateRandomSalesData(),
+    Category4: generateRandomSalesData(),
+    Category5: generateRandomSalesData()
+};
+
+// Initialize the chart
+const ctx3 = document.getElementById('salesChart').getContext('2d');
+const salesChart = new Chart(ctx3, {
+    type: 'bar',
+    data: {
+        labels: labels,
+        datasets: [{
+            label: 'Category Sales',
+            data: salesData['Category1'], // Default to Category 1
+            backgroundColor: 'rgba(0, 123, 255, 0.5)',
+            borderColor: 'rgba(0, 123, 255, 1)',
+            borderWidth: 1
+        }, {
+            label: 'Trend Line',
+            data: salesData['Category1'], // Default to Category 1
+            type: 'line',
+            borderColor: 'rgba(255, 0, 0, 1)',
+            borderWidth: 2,
+            fill: false
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        },
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            title: {
+                display: true,
+                text: 'Sales Over Time'
+            }
+        }
+    }
+});
+
+// Update the chart when the selected category changes
+document.getElementById('productFilter').addEventListener('change', (event) => {
+    const selectedCategory = event.target.value;
+    salesChart.data.datasets[0].data = salesData[selectedCategory];
+    salesChart.data.datasets[1].data = salesData[selectedCategory];
+    salesChart.update();
+});
+
+// Curve 3
+// Random data generation
+function generateRandomDatapie(numItems) {
+    return Array.from({ length: numItems }, () => Math.floor(Math.random() * 100) + 1);
+}
+
+// Set up the chart data
+const data = {
+    labels: [
+        "Product Defects or Quality Issues",
+        "Wrong Item Received",
+        "Unsatisfactory Product Performance",
+        "Changed Mind or Dissatisfaction",
+        "Better Price or Alternative Found"
+    ],
+    datasets: [{
+        data: generateRandomDatapie(5), // Generate 5 random data points
+        backgroundColor: [
+            '#FF6384',
+            '#36A2EB',
+            '#FFCE56',
+            '#E7E9ED',
+            '#4BC0C0'
+        ],
+        hoverBackgroundColor: [
+            '#FF6384',
+            '#36A2EB',
+            '#FFCE56',
+            '#E7E9ED',
+            '#4BC0C0'
+        ]
+    }]
+};
+
+// Configuration options
+const options = {
+    responsive: true,
+    plugins: {
+        legend: {
+            position: 'top',
+        },
+        title: {
+            display: true,
+            text: 'Percentage of Returns by Return Reason'
+        }
+    }
+};
+
+// Initialization of pie chart
+const ctx2 = document.getElementById('myPieChart').getContext('2d');
+const myPieChart = new Chart(ctx2, {
+    type: 'polarArea',
+    data: data,
+    options: options
 });

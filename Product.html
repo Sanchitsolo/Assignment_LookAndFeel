@@ -43,13 +43,15 @@
     <div class="container mt-5">
         <label for="tableSelect" class="form-label">Select Table:</label>
         <select id="tableSelect" class="form-select mb-3">
-            <option value="users">Users</option>
+            <option value="customers">Customers</option>
             <option value="products">Products</option>
             <option value="orders">Orders</option>
             <option value="orderDetails">Order Details</option>
             <option value="categories">Categories</option>
-            <option value="productCategories">Product Categories</option>
-            <option value="reviews">Reviews</option>
+            <option value="shippingMethods">Shipping Methods</option>
+            <option value="payments">Payments</option>
+            <option value="returns">Returns</option>
+            <option value="customerReviews">Reviews</option>
         </select>
         <button onclick="displayData()" class="btn btn-primary">Display Data</button>
 
@@ -57,7 +59,7 @@
             <!-- Table data will be displayed here -->
         </div>
 
-        <button id="saveButton" style="display: none;" class="btn btn-success mt-4">Save Changes</button>
+        <button onclick="saveChanges()" id="saveButton" style="display: none;" class="btn btn-success mt-4">Save Changes</button>
     </div>
 
     <script src="productscript.js"></script>

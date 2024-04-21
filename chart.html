@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -34,12 +34,13 @@
 <body>
     <div class="container">
         <h2>Monthly Sales Data</h2>
-        <label for="productFilter">Select Product:</label>
+        <label for="productFilter">Select Category:</label>
         <select id="productFilter">
-            <option value="Product1">Wall Painting Italy</option>
-            <option value="Product2">Sponge</option>
-            <option value="Product3">Football Jersey Spain</option>
-            <!-- More products can be added here -->
+            <option value="Category1">Home Decor</option>
+            <option value="Category2">Household Items</option>
+            <option value="Category3">Sports Equipment</option>
+            <option value="Category4">Electronics</option>
+            <option value="Category5">Clothing</option>
         </select>
         <canvas id="salesChart"></canvas>
     </div>
@@ -56,10 +57,11 @@
         }
 
         const salesData = {
-            Product1: generateRandomSalesData(),
-            Product2: generateRandomSalesData(),
-            Product3: generateRandomSalesData(),
-            // More products data can be added here
+            Category1: generateRandomSalesData(),
+            Category2: generateRandomSalesData(),
+            Category3: generateRandomSalesData(),
+            Category4: generateRandomSalesData(),
+            Category5: generateRandomSalesData()
         };
 
         // Initialize the chart
@@ -69,8 +71,8 @@
             data: {
                 labels: labels,
                 datasets: [{
-                    label: 'Product Sales',
-                    data: salesData['Product1'], // Default to Product 1
+                    label: 'Category Sales',
+                    data: salesData['Category1'], // Default to Category 1
                     backgroundColor: 'rgba(0, 123, 255, 0.5)',
                     borderColor: 'rgba(0, 123, 255, 1)',
                     borderWidth: 1
@@ -95,10 +97,10 @@
             }
         });
 
-        // Update the chart when the selected product changes
+        // Update the chart when the selected category changes
         document.getElementById('productFilter').addEventListener('change', (event) => {
-            const selectedProduct = event.target.value;
-            salesChart.data.datasets[0].data = salesData[selectedProduct];
+            const selectedCategory = event.target.value;
+            salesChart.data.datasets[0].data = salesData[selectedCategory];
             salesChart.update();
         });
     </script>

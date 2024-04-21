@@ -109,6 +109,7 @@ h1 {
     height: calc(100vh - 140px);
     overflow-y: auto;
     width: 80%;
+    scrollbar-width: none;
 }
 
 .group {

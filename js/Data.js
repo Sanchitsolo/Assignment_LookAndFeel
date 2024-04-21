@@ -111,6 +111,7 @@ const data = {
     ]
 };
 
+
 function displayData() {
     const tableSelect = document.getElementById("tableSelect");
     const selectedTable = tableSelect.value;
@@ -120,6 +121,9 @@ function displayData() {
     tableDataDiv.innerHTML = ""; 
 
     if (tableData && tableData.length > 0) { // Check if data is available and not empty
+        const tableContainer = document.createElement("div");
+        tableContainer.className = "table-container";
+        
         const table = document.createElement("table");
         table.className = "table table-striped"; // Bootstrap table styling
 
@@ -145,14 +149,85 @@ function displayData() {
             table.appendChild(row);
         });
 
-        tableDataDiv.appendChild(table);
-        tableDataDiv.style.display = "block"; // Ensure the table data div is visible
+        tableContainer.appendChild(table); // Append the table to the tableContainer
+
+        // Add "Add Entry" button
+        const addButtonContainer = document.createElement("div");
+        addButtonContainer.className = "add-button-container";
+        const addButton = document.createElement("button");
+        addButton.textContent = "Add Entry";
+        addButton.className = "btn btn-primary"; // Bootstrap button styling
+        addButton.onclick = addEntry;
+        addButtonContainer.appendChild(addButton); 
+
+        tableContainer.appendChild(addButtonContainer); 
+        tableDataDiv.appendChild(tableContainer); 
+
+        tableDataDiv.style.display = "block"; 
     } else {
         tableDataDiv.textContent = "No data available for the selected table.";
-        tableDataDiv.style.display = "block"; // Ensure the table data div is visible
+        tableDataDiv.style.display = "block"; 
     }
 }
 
+
+function addEntry() {
+    const tableSelect = document.getElementById("tableSelect");
+    const selectedTable = tableSelect.value;
+    const tableDataDiv = document.getElementById("tableData");
+
+    const table = document.querySelector(".table");
+    const newRow = document.createElement("tr");
+
+    Object.keys(data[selectedTable][0]).forEach(key => {
+        const cell = document.createElement("td");
+        const input = document.createElement("input");
+        input.type = "text";
+        input.className = "form-control";
+        input.placeholder = key;
+        cell.appendChild(input);
+        newRow.appendChild(cell);
+    });
+
+    const actionCell = document.createElement("td");
+    const saveButton = document.createElement("button");
+    saveButton.textContent = "Save";
+    saveButton.className = "btn btn-success save-btn";
+    saveButton.onclick = saveNewEntry.bind(null, newRow, selectedTable); 
+    actionCell.appendChild(saveButton);
+
+    const cancelButton = document.createElement("button");
+    cancelButton.textContent = "Cancel";
+    cancelButton.className = "btn btn-danger cancel-btn ms-2";
+    cancelButton.onclick = cancelNewEntry.bind(null, newRow); 
+    actionCell.appendChild(cancelButton);
+
+    newRow.appendChild(actionCell);
+
+    table.appendChild(newRow);
+    saveButton.style.backgroundColor = "#28a745";
+    cancelButton.style.backgroundColor = "#dc3545";
+}
+
+
+function saveNewEntry(newRow, selectedTable) {
+    const inputs = newRow.querySelectorAll("input");
+    const newRowData = {};
+
+    inputs.forEach(input => {
+        newRowData[input.placeholder] = input.value;
+    });
+
+   
+    data[selectedTable].push(newRowData);
+
+    // After saving, refresh the displayed data
+    displayData();
+}
+
+function cancelNewEntry(newRow) {
+    newRow.remove();
+}
 
 function editRow(btn) {
     const row = btn.parentNode.parentNode;

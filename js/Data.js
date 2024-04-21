@@ -1,23 +1,17 @@
 const data = {
-    users: [
-        { UserID: 1, Username: "john_doe", Email: "john@example.com", Password: "pass123", Address: "123 Main Street", Phone: "123-456-7890" },
-        { UserID: 2, Username: "alice", Email: "alice@example.com", Password: "alice123", Address: "456 Elm Avenue", Phone: "456-789-0123" },
-    ],
+
+
     products: [
-        { ProductID: 1, Name: "Laptop", Description: "High-performance laptop with SSD storage", Price: 999.99, StockQuantity: 50 },
-        { ProductID: 2, Name: "Smartphone", Description: "Latest model smartphone with dual cameras", Price: 799.99, StockQuantity: 100 },
-    ],
-    products: [
-        { id: 1, name: 'Laptop', description: 'High-performance laptop with SSD storage', price: 999.99, stockQuantity: 50 },
-        { id: 2, name: 'Smartphone', description: 'Latest model smartphone with dual cameras', price: 799.99, stockQuantity: 100 },
-        { id: 3, name: 'Headphones', description: 'Noise-canceling headphones with Bluetooth', price: 199.99, stockQuantity: 200 },
-        { id: 4, name: 'Smartwatch', description: 'Fitness tracker with heart rate monitor', price: 149.99, stockQuantity: 150 },
-        { id: 5, name: 'Tablet', description: 'Lightweight tablet with long battery life', price: 299.99, stockQuantity: 75 },
-        { id: 6, name: 'Camera', description: 'DSLR camera with multiple lens options', price: 1499.99, stockQuantity: 30 },
-        { id: 7, name: 'Speaker System', description: 'Home theater speaker system with surround sound', price: 499.99, stockQuantity: 40 },
-        { id: 8, name: 'Gaming Console', description: 'Next-gen gaming console with 4K capabilities', price: 399.99, stockQuantity: 80 },
-        { id: 9, name: 'Wireless Router', description: 'High-speed wireless router for home or office', price: 79.99, stockQuantity: 120 },
-        { id: 10, name: 'External Hard Drive', description: 'Portable external hard drive for data backup', price: 129.99, stockQuantity: 100 }
+        { productID: 1, productName: "Laptop", price: 999.99, description: "A high-performance laptop for gaming and work.", categoryID: 1, stockQuantity: 25 },
+        { productID: 2, productName: "Smartphone", price: 699.99, description: "Latest model with high-resolution camera.", categoryID: 1, stockQuantity: 50 },
+        { productID: 3, productName: "Bluetooth Headphones", price: 199.99, description: "Noise-cancelling headphones with long battery life.", categoryID: 2, stockQuantity: 75 },
+        { productID: 4, productName: "Smart Watch", price: 299.99, description: "Waterproof smartwatch with various health tracking features.", categoryID: 3, stockQuantity: 40 },
+        { productID: 5, productName: "E-Reader", price: 129.99, description: "Lightweight e-reader with paper-like display.", categoryID: 4, stockQuantity: 60 },
+        { productID: 6, productName: "Wireless Mouse", price: 49.99, description: "Ergonomic wireless mouse with custom buttons.", categoryID: 2, stockQuantity: 120 },
+        { productID: 7, productName: "Gaming Console", price: 499.99, description: "Next-gen gaming console with 8K support.", categoryID: 5, stockQuantity: 30 },
+        { productID: 8, productName: "Tablet", price: 399.99, description: "Portable tablet ideal for work and entertainment.", categoryID: 4, stockQuantity: 45 },
+        { productID: 9, productName: "Wireless Charger", price: 59.99, description: "Fast-charging wireless charger compatible with multiple devices.", categoryID: 2, stockQuantity: 80 },
+        { productID: 10, productName: "External Hard Drive", price: 89.99, description: "Compact external hard drive with 2TB capacity.", categoryID: 6, stockQuantity: 90 }
     ],
 
     orders: [
@@ -47,16 +41,16 @@ const data = {
     ],
 
     categories: [
-        { categoryId: 1, name: 'Electronics', description: 'Gadgets and electronic devices' },
-        { categoryId: 2, name: 'Appliances', description: 'Home and kitchen appliances' },
-        { categoryId: 3, name: 'Fashion', description: 'Clothing and accessories' },
-        { categoryId: 4, name: 'Books', description: 'Books and educational materials' },
-        { categoryId: 5, name: 'Sports', description: 'Sports equipment and gear' },
-        { categoryId: 6, name: 'Beauty', description: 'Beauty and personal care products' },
-        { categoryId: 7, name: 'Toys', description: 'Toys and games for all ages' },
-        { categoryId: 8, name: 'Home Decor', description: 'Home decor and furnishings' },
-        { categoryId: 9, name: 'Food', description: 'Food and gourmet items' },
-        { categoryId: 10, name: 'Automotive', description: 'Automotive accessories and parts' }
+        { categoryID: 1, categoryName: 'Electronics', Description: 'Gadgets and electronic devices' },
+        { categoryID: 2, categoryName: 'Appliances', Description: 'Home and kitchen appliances' },
+        { categoryID: 3, categoryName: 'Fashion', Description: 'Clothing and accessories' },
+        { categoryID: 4, categoryName: 'Books', Description: 'Books and educational materials' },
+        { categoryID: 5, categoryName: 'Sports', Description: 'Sports equipment and gear' },
+        { categoryID: 6, categoryName: 'Beauty', Description: 'Beauty and personal care products' },
+        { categoryID: 7, categoryName: 'Toys', Description: 'Toys and games for all ages' },
+        { categoryID: 8, categoryName: 'Home Decor', Description: 'Home decor and furnishings' },
+        { categoryID: 9, categoryName: 'Food', Description: 'Food and gourmet items' },
+        { categoryID: 10, categoryName: 'Automotive', Description: 'Automotive accessories and parts' }
     ],
 
     payments: [
@@ -88,18 +82,7 @@ const data = {
         { returnID: 5, orderID: 107, reason: "Better price found elsewhere" }
     ],
 
-    notuseproducts: [
-        { productID: 1, productName: "Laptop", price: 999.99, description: "A high-performance laptop for gaming and work." },
-        { productID: 2, productName: "Smartphone", price: 699.99, description: "Latest model with high-resolution camera." },
-        { productID: 3, productName: "Bluetooth Headphones", price: 199.99, description: "Noise-cancelling headphones with long battery life." },
-        { productID: 4, productName: "Smart Watch", price: 299.99, description: "Waterproof smartwatch with various health tracking features." },
-        { productID: 5, productName: "E-Reader", price: 129.99, description: "Lightweight e-reader with paper-like display." },
-        { productID: 6, productName: "Wireless Mouse", price: 49.99, description: "Ergonomic wireless mouse with custom buttons." },
-        { productID: 7, productName: "Gaming Console", price: 499.99, description: "Next-gen gaming console with 8K support." },
-        { productID: 8, productName: "Tablet", price: 399.99, description: "Portable tablet ideal for work and entertainment." },
-        { productID: 9, productName: "Wireless Charger", price: 59.99, description: "Fast-charging wireless charger compatible with multiple devices." },
-        { productID: 10, productName: "External Hard Drive", price: 89.99, description: "Compact external hard drive with 2TB capacity." }
-    ],
+  
 
     customers: [
         { customerID: 1, firstname: "John", lastname: "Doe", email: "john.doe@example.com" },

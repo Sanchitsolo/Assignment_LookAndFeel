@@ -170,7 +170,6 @@ function displayData() {
     }
 }
 
-
 function addEntry() {
     const tableSelect = document.getElementById("tableSelect");
     const selectedTable = tableSelect.value;
@@ -178,6 +177,10 @@ function addEntry() {
 
     const table = document.querySelector(".table");
     const newRow = document.createElement("tr");
+
+    // Add empty cell as the first cell
+    const emptyCell = document.createElement("td");
+    newRow.appendChild(emptyCell);
 
     Object.keys(data[selectedTable][0]).forEach(key => {
         const cell = document.createElement("td");
@@ -190,6 +193,8 @@ function addEntry() {
     });
 
     const actionCell = document.createElement("td");
+    actionCell.colSpan = Object.keys(data[selectedTable][0]).length + 1; // Span the action cell across all columns, including the empty cell
+
     const saveButton = document.createElement("button");
     saveButton.textContent = "Save";
     saveButton.className = "btn btn-success save-btn";
@@ -208,6 +213,7 @@ function addEntry() {
     saveButton.style.backgroundColor = "#28a745";
     cancelButton.style.backgroundColor = "#dc3545";
 }
+
 
 
 function saveNewEntry(newRow, selectedTable) {
